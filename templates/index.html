@@ -2,6 +2,11 @@
 <html>
 <head>
     <title>Frequency Counter Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -10,17 +15,62 @@
 
     <h1>Frequency Counter Algorithm Dashboard</h1>
 
-    <input type="text" id="inputArray"
-        placeholder="Enter values separated by commas">
+    <p class="desc">
+        Compare Loop-based vs HashMap frequency counting with time complexity analysis.
+    </p>
 
-    <button id="compareBtn">Compare</button>
+    <!-- INPUT -->
+    <div class="input-section">
 
-    <select id="methodSelect">
-        <option value="nested">Nested Loop (O(n²))</option>
-        <option value="single">Single Loop (O(n²))</option>
-    </select>
+        <input type="text" id="inputArray"
+            placeholder="Enter values (numbers or strings) separated by commas">
+
+        <button id="compareBtn">Compare</button>
+        <button onclick="generateRandom()">🎲 Random</button>
+
+    </div>
+
+    <!-- METHOD -->
+    <div class="method-section">
+        <select id="methodSelect">
+            <option value="nested">Nested Loop (O(n²))</option>
+            <option value="single">Single Loop (O(n²))</option>
+        </select>
+    </div>
+
+    <!-- OUTPUT -->
+<div id="outputSection">
+
+    <div id="dashboard">
+
+        <!-- LEFT -->
+        <div id="resultBox">
+
+            <h3 id="bruteLabel">Method</h3>
+
+            <p>Looping Time: <span id="nestedTime">-</span> ms</p>
+            <p>HashMap Time: <span id="hashmapTime">-</span> ms</p>
+
+            <h3>Frequency Output</h3>
+            <pre id="frequencyOutput">-</pre>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div id="chartBox">
+            <canvas id="timeChart"></canvas>
+        </div>
+
+        <!-- 🔥 WINNER INSIDE SAME DASHBOARD -->
+        <div id="winnerBox">
+            🏆 Winner: <span id="winner">-</span>
+        </div>
+
+    </div>
 
 </div>
+
 <script src="/static/script.js"></script>
+
 </body>
 </html>
