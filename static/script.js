@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let formatted = "";
 
             for (let key in freq) {
-                formatted += ${key} → ${freq[key]}\n;
+                formatted += `${key} → ${freq[key]}\n`;
             }
 
             document.getElementById("frequencyOutput").innerText =
