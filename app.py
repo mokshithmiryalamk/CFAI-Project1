@@ -15,6 +15,7 @@ def compare():
     if not values:
         return jsonify({"error": "No input provided"})
 
+    # Nested Loop
     start1 = time.perf_counter()
 
     freq1 = {}
@@ -27,9 +28,23 @@ def compare():
 
     nested_time = (time.perf_counter() - start1) * 1000
 
+    # HashMap
+    start2 = time.perf_counter()
+
+    freq3 = {}
+    for v in values:
+        if v in freq3:
+            freq3[v] += 1
+        else:
+            freq3[v] = 1
+
+    hashmap_time = (time.perf_counter() - start2) * 1000
+
     return jsonify({
         "frequency_nested": freq1,
-        "brute_time_ms": nested_time
+        "frequency_hashmap": freq3,
+        "brute_time_ms": nested_time,
+        "hashmap_time_ms": hashmap_time
     })
 
 if __name__ == "__main__":
