@@ -67,18 +67,13 @@ def compare():
     )
 
     return jsonify({
-        "values": values,
-
-        "frequency_nested": freq1,
-        "frequency_single": freq2,
-        "frequency_hashmap": freq3,
-
-        "brute_time_ms": nested_time,
-        "single_time_ms": single_time,
-        "hashmap_time_ms": hashmap_time,
-
-        "winner": winner
-    })
+    "frequency_nested": freq1,
+    "frequency_hashmap": freq3,
+    "brute_time_ms": nested_time,
+    "hashmap_time_ms": hashmap_time,
+    "brute_label": "Loop Method",
+    "winner": winner
+})
 
 
 if __name__ == "__main__":
